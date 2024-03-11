@@ -575,6 +575,8 @@ CytoML::gatingset_to_flowjo(gs, outFile=paste0(res_dir, "/gs.wsp"))
 # 3. can you make one plotting function that creates the 
 # scatterplots/density plots to replace all previous plotting code?
 
+# 4. in the solution script (gating_full.R), there are variables whose name does not make sense, despite the script working with no problem. Can you find them? When you read the script, did they hinder your understanding?
+
 # 4. if you want more practice, try creating a gating script for any of the 
 #    files in http://flowrepository.org/public_experiment_representations/1146
 #    used in the article "An immune clock of pregnancy" (doi/10.1126/sciimmunol.aan2946),
