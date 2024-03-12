@@ -931,6 +931,11 @@ graphics.off()
 flowWorkspace::save_gs(gs, path=paste0(res_dir, "/gs"))
 # gs <- flowWorkspace::load_gs(paste0(res_dir, "/gs"))
 
+# gating tree
+pdf(paste0(gateplot_dir, "/tree.pdf"))
+flowWorkspace::plot(gs)
+graphics.off()
+
 # you can also save the gatingset as a flowjo workspace
 # you will need to install package CytoML:
 # if (!require("BiocManager", quietly = TRUE)) install.packages("BiocManager")

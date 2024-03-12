@@ -35,12 +35,12 @@ pdf(paste0(gateplot_dir, "/tree.pdf"))
 flowWorkspace::plot(gs)
 graphics.off()
 
-# all gatings
-gag <- ggcyto::autoplot(gs[[1]], bins=100)
-ggplot2::ggsave(filename=paste0(gateplot_dir, "/all_gates.png"), plot=gag)
-
-# one gating
-ggcyto::autoplot(gs, cpops[1], bins=100)
+# # all gatings
+# gag <- ggcyto::autoplot(gs[[1]], bins=100)
+# ggplot2::ggsave(filename=paste0(gateplot_dir, "/all_gates.png"), plot=gag)
+# 
+# # one gating
+# ggcyto::autoplot(gs, cpops[1], bins=100)
 
 
 ## stats ####

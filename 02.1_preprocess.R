@@ -75,6 +75,7 @@ flowDensity::plotDens(f, channels=c("Time", "FSC-A"))
 
 channels <- c(4:21)
 res_dir <- "/home/alice/projects/20220729_physalia_course/flowcytometry_R_course_begin" # where to save PeacoQC plot
+time_range <- range(flowCore::exprs(f)[,"Time"])
 fmr <- PeacoQC::RemoveMargins(f, channels=channels, output="full")
 pQC <- PeacoQC::PeacoQC(fmr[["flowframe"]], channels=channels,
                         plot=TRUE, save_fcs=FALSE, report=FALSE,
@@ -82,7 +83,6 @@ pQC <- PeacoQC::PeacoQC(fmr[["flowframe"]], channels=channels,
 
 # final preprocessed fcs!
 fc <- pQC[["FinalFF"]] 
-time_range <- range(flowCore::exprs(f)[,"Time"])
 flowDensity::plotDens(fc, channels=c("Time", channel), ylim=channel_range, xlim=time_range)
 
 

@@ -1181,12 +1181,17 @@ flowWorkspace::recompute(gs)
 flowWorkspace::save_gs(gs, path=paste0(res_dir, "/gs"))
 # gs <- flowWorkspace::load_gs(paste0(res_dir, "/gs"))
 
+# gating tree
+pdf(paste0(gateplot_dir, "/tree.pdf"))
+flowWorkspace::plot(gs)
+graphics.off()
+
 # ## plot everything ####
 # # all gatings
 # # BiocManager::install("ggcyto")
 # gag <- ggcyto::autoplot(gs[[1]], bins=100)
 # ggplot2::ggsave(filename=paste0(gateplot_dir, "/all_gates.png"), plot=gag)
-# 
+
 # # one gating
 # ggcyto::autoplot(gs, "live", bins=100) # replace "live" with the cell population of interest
 

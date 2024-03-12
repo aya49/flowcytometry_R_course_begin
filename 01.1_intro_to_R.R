@@ -148,5 +148,5 @@ d[["age"]]
 
 # 3.c) Extract the 2nd column of "my_df" using the "$" symbol, again with the "[,]" syntax, and again with the "[[]]" syntax.
 
-# 3.d) Extract the , and 2nd to 4th column of "my_df". What are the dimensions of your new data frame?
+# 3.d) Extract the 1st row, and 2nd to 4th column of "my_df". What are the dimensions of your new data frame?
 
