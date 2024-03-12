@@ -49,7 +49,7 @@ for (fcs_path in fcs_paths) {
     # 1. try manipulating the arguments of "write.table()" to see what you get!
     # e.g. write.table(new_matrix, file=csv_path, quote=TRUE, sep=" ", row.names=TRUE, col.names=FALSE)
     
-    # 2. Can you combine “02.1_preprocess.R” and “02.3_intro_to_R_fileIO_loop.R” to make a script that loops through and preprocesses multiple files? 
-    # TO-DO: Copy the file “sangerP2.fcs” and rename the file as “sangerP2_copy.fcs” and put them into the same folder; try looping through the two files in the folder and clean them both :).
-    # Try it yourself first before looking at the solution: “02.4_preprocess_loop.R”.
+    # 2. Can you combine "02.1_preprocess.R" and "02.3_intro_to_R_fileIO_loop.R" to make a script that loops through and preprocesses multiple files? 
+    # TO-DO: Copy the file "sangerP2.fcs" and rename the file as "sangerP2_copy.fcs" and put them into the same folder; try looping through the two files in the folder and clean them both :).
+    # Try it yourself first before looking at the solution: "02.4_preprocess_loop.R".
 }
