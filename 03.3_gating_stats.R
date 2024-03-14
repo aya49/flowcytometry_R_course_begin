@@ -8,7 +8,7 @@ library("flowCore")
 library("flowWorkspace")
 
 # directory to save and obtain results in
-res_dir <- "/home/maruko/projects/gating"
+res_dir <- "/home/alice/projects/20220729_physalia_course/flowcytometry_R_course_begin"
 gateplot_dir <- paste0(res_dir, "/gs_plots")
 
 # load gating set
