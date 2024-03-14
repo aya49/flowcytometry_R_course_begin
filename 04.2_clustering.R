@@ -48,10 +48,13 @@ n_sample <- 5000
 
 # phenograph
 # TRY CHANGING k (number of neighbours)
+# TRY CHANGING names(markers) to only your markers of interest e.g. "PerCP-Cy5-5-A", "APC-A"
 pc_ <- Rphenograph::Rphenograph(flowCore::exprs(ff)[, names(markers)], k=50) 
 pc <- igraph::membership(pc_[[2]])
 
 # flowsom
+# TRY CHANGING nClus (# clusters)
+# TRY CHANGING names(markers) to only your markers of interest e.g. "PerCP-Cy5-5-A", "APC-A"
 fc_ <- FlowSOM::FlowSOM(ff, nClus=n_clust, colsToUse=names(markers))
 fc <- as.numeric(FlowSOM::GetMetaclusters(fc_))
 
@@ -83,6 +86,7 @@ ffs <- flowCore::exprs(ff)[ffsample, names(markers)]
 ## make 2D scatterplots
 print(names(markers))
 # choose to markers to plot!
+# TRY CHANGING fc to pc (flowsom vs phenograph)
 df <- data.frame(marker1=ffs[,c("PerCP-Cy5-5-A")],
                  marker2=ffs[,c("APC-A")],
                  cluster=factor(fc[ffsample])) # prepare data frame
@@ -91,10 +95,11 @@ ggplot2::ggplot(df, ggplot2::aes(x=marker1, y=marker2, colour=cluster)) +
 
 ## reduce dimensionality of data to 2D
 t2 <- Rtsne::Rtsne(ffs)$Y
+u2 <- umap::umap(ffs)$layout
 # TRY adjusting "n_neighbors" and 
 #               "metric" for distance metric used 
 #               i.e. any of: "cosine", "manhattan", "hamming", "correlation"
-u2 <- umap::umap(ffs)$layout
+# install.packages("uwot")
 # u2 <- uwot::umap(ffs, n_neighbors=15, metric="euclidean")
 colnames(t2) <- colnames(u2) <- c("x", "y")
 
