@@ -9,10 +9,10 @@ library("flowWorkspace") # also imports ggcyto and ggplot2 packages
 library("Rphenograph") # also imports igraph package
 library("FlowSOM")
 library("Rtsne")
-library("uwot")
+library("umap")
 
 # directory to save results in
-res_dir <- "/home/maruko/projects/gating"
+res_dir <- "/home/alice/projects/20220729_physalia_course/flowcytometry_R_course_begin"
 
 # set seed for randomness
 set.seed(4)
@@ -94,7 +94,8 @@ t2 <- Rtsne::Rtsne(ffs)$Y
 # TRY adjusting "n_neighbors" and 
 #               "metric" for distance metric used 
 #               i.e. any of: "cosine", "manhattan", "hamming", "correlation"
-u2 <- uwot::umap(ffs, n_neighbors=15, metric="euclidean")
+u2 <- umap::umap(ffs)$layout
+# u2 <- uwot::umap(ffs, n_neighbors=15, metric="euclidean")
 colnames(t2) <- colnames(u2) <- c("x", "y")
 
 
@@ -102,7 +103,8 @@ colnames(t2) <- colnames(u2) <- c("x", "y")
 tu2d <- data.frame(
     tx=t2[,1], ty=t2[,2], ux=u2[,1], uy=u2[,2], 
     phenograph=pc[ffsample], flowsom=fc[ffsample],
-    cpops=apply(cpops_matrix[ffsample,], 1, function(x) cpops[x]) )
+    cpops=sapply(apply(cpops_matrix[ffsample,], 1, function(x) 
+        (cpops[x])), function(y) y[1]) )
 
 # tsne
 gptp <- ggplot2::ggplot(tu2d, ggplot2::aes(x=tx, y=ty, colour=factor(phenograph))) + ggplot2::geom_point(size=0.5)

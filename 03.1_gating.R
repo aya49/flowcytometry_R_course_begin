@@ -11,7 +11,7 @@ library("flowDensity")
 # library("ggpointdensity") # for easier density scatterplots
 
 # directory to save results in
-res_dir <- "/home/maruko/projects/gating"
+res_dir <- "/home/alice/projects/20220729_physalia_course/flowcytometry_R_course_begin"
 dir.create(res_dir)
 
 gateplot_dir <- paste0(res_dir, "/gs_plots")
@@ -220,7 +220,7 @@ gate_cd5_high <- flowDensity::deGate(
 gate_cd11b <- flowDensity::deGate(ff, channel="BV510-A")
 temp <- flowDensity::flowDensity(
     ff, channels=c("APC-A", "BV510-A"), 
-    position=c(NA,TRUE), gates=c(NA, gate_cd11b)) #upper half
+    position=c(NA, TRUE), gates=c(NA, gate_cd11b)) #upper half
 gate_cd5 <- flowDensity::deGate(
     flowDensity::getflowFrame(temp), channel="APC-A")
 
@@ -580,7 +580,9 @@ CytoML::gatingset_to_flowjo(gs, outFile=paste0(res_dir, "/gs.wsp"))
 # 3. can you make one plotting function that creates the 
 # scatterplots/density plots to replace all previous plotting code?
 
-# 4. in the solution script (gating_full.R), there are variables whose name does not make sense, despite the script working with no problem. Can you find them? When you read the script, did they hinder your understanding?
+# 4. in the solution script (gating_full.R), there are variables whose name 
+# does not make sense, despite the script working with no problem. 
+# Can you find them? Did they hinder your understanding? 
 
 # 4. if you want more practice, try creating a gating script for any of the 
 #    files in http://flowrepository.org/public_experiment_representations/1146

@@ -10,7 +10,7 @@ library("flowWorkspace")
 library("flowDensity")
 
 # directory to save results in
-res_dir <- "/home/alice/projects/20220729 physalia course\flowcytometry_R_course_begin"
+res_dir <- "/home/alice/projects/20220729_physalia_course/flowcytometry_R_course_begin"
 dir.create(res_dir)
 
 gateplot_dir <- paste0(res_dir, "/gs_plots")
