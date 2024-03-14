@@ -65,6 +65,12 @@ for (cp in cpops) {
     mefi <- apply(flowCore::exprs(ff)[,names(marker),drop=FALSE], 2, median)
     mfi <- apply(flowCore::exprs(ff)[,names(marker),drop=FALSE], 2, mean)
     sdfi <- apply(flowCore::exprs(ff)[,names(marker),drop=FALSE], 2, sd)
+    # # for clusters subset-ed from the FULL flow frame, see clustering.R:
+    # # replace for loop with: for (cp in unique(fc)) {
+    # mefi <- apply(flowCore::exprs(ff)[fc==cluster_id,names(marker),drop=FALSE], 2, median)
+    # mfi <- apply(flowCore::exprs(ff)[fc==cluster_id,names(marker),drop=FALSE], 2, mean)
+    # sdfi <- apply(flowCore::exprs(ff)[fc==cluster_id,names(marker),drop=FALSE], 2, sd)
+    
     
     cvfi <- sdfi/mfi
     
